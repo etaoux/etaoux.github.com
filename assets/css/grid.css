@@ -1,0 +1,10 @@
+.grid-1,
+.grid-2 {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.grid .grid-1 {
+  width: 220px;
+}
