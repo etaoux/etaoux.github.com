@@ -2,12 +2,14 @@ KISSY.use('template', function(S, Template) {
 
     var tmpl = S.one('#j-repo-template').html()
 
-    S.IO.get('https://api.github.com/orgs/etaoux/repos', function(data) {
-        delete_if(data, function(repo) {
+    S.IO.jsonp('https://api.github.com/orgs/etaoux/repos', function(data) {
+        var repos = data.data,
+            markup
+
+        delete_if(repos, function(repo) {
             return repo.name === 'etaoux.github.com'
         })
-        console.log(data)
-        var markup = Template(tmpl).render({repos: data})
+        markup = Template(tmpl).render({repos: repos})
 
         S.one('#repos').html(markup)
     })
