@@ -2,16 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Brix &mdash; UX</title>
+  <title>Etao UX</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/frontpage.css">
 </head>
 <body>
-<div id="page" class="grid">
-  <figure id="banner">
-    <img src="assets/img/kickoff.png" alt="kickoff"/>
-  </figure>
-  <ol id="repos"></ol>
-</div>
+<figure id="banner">
+  <img src="assets/img/kickoff.png" alt="kickoff"/>
+</figure>
+<ol id="repos" class="grid">
+  <li class="members grid-1">
+    <h2>members</h2>
+    <ol id="members"></ol>
+  </li>
+</ol>
 <script type="kissy/template" id="j-repo-template">
 {{#each repos as repo}}
 <li class="repo grid-1 {{repo.language.toLowerCase()}}">
@@ -19,6 +22,16 @@
     <h2>{{repo.name}}</h2>
     <p class="language">{{repo.language}}</p>
     <p class="description">{{repo.description}}</p>
+  </a>
+</li>
+{{/each}}
+</script>
+<script type="kissy/template" id="j-user-template">
+{{#each members as user}}
+<li class="user">
+  <a href="http://github.com/{{user.login}}">
+    <img src="{{user.avatar_url}}" width="60" height="60"/>
+    <span class="nickname">{{user.login}}</span>
   </a>
 </li>
 {{/each}}
