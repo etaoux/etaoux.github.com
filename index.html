@@ -17,7 +17,7 @@
 </ol>
 <script type="kissy/template" id="j-repo-template">
 {{#each repos as repo}}
-<li class="repo grid-1 {{repo.language.toLowerCase()}}">
+<li class="repo grid-1 {{#if repo.language}}{{repo.language.toLowerCase()}}{{/if}}">
   <a href="{{repo.homepage || repo.html_url}}">
     <h2>{{repo.name}}</h2>
     <p class="language">{{repo.language}}</p>
